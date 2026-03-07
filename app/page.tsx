@@ -1,10 +1,11 @@
 import Navbar from "../components/Navbar";
 import HeroSection from "../components/HeroSection";
-import SkillsSection from "../components/SkillsSection";
-import ExperienceSection from "../components/ExperienceSection";
-import ProjectsSection from "../components/ProjectsSection";
-import ContactSection from "../components/ContactSection";
-import Footer from "../components/Footer";
+import ServicesSection from "@/components/ServicesSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import AboutMeSection from "@/components/AboutMeSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
+
 
 export default function Home() {
   return (
@@ -12,9 +13,9 @@ export default function Home() {
       <Navbar />
       <main className="flex flex-col gap-0">
         <HeroSection />
+        <ServicesSection />
         <ProjectsSection />
-        <SkillsSection />
-        <ExperienceSection />
+        <AboutMeSection />
         <ContactSection />
       </main>
       <Footer />
