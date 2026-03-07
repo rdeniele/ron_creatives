@@ -15,7 +15,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-white/80 border-b border-[#E5E5E5]">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#home" className="flex items-center gap-2 text-2xl font-bold" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000', letterSpacing: '-0.02em' }}>
+          <a href="/" className="flex items-center gap-2 text-2xl font-bold" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000', letterSpacing: '-0.02em' }}>
             {/* Cat icon from Phosphor Icons (MIT License) */}
             <svg width="32" height="32" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-black">
               <path d="M128 32c-16 0-32 8-44.8 22.4C70.4 66.4 64 80 64 96c0 32 32 64 64 64s64-32 64-64c0-16-6.4-29.6-19.2-41.6C160 40 144 32 128 32zm0 112c-26.4 0-48-21.6-48-48 0-10.4 4-20 11.2-28.8C99.2 59.2 113.6 52 128 52s28.8 7.2 36.8 15.2C200 76 204 85.6 204 96c0 26.4-21.6 48-48 48z" fill="#222"/>
