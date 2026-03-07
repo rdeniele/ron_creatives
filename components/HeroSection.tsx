@@ -1,7 +1,7 @@
 "use client";
 export default function HeroSection() {
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center items-center bg-white px-6 text-center">
+    <section className="min-h-[80vh] flex flex-col justify-center items-center bg-white px-6 text-center pt-28 md:pt-32">
       <h1
         className="text-5xl md:text-7xl font-bold mb-8"
         style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000', letterSpacing: '-0.02em', lineHeight: 1.1 }}

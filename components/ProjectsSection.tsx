@@ -2,25 +2,44 @@
 
 import React, { useState } from "react";
 
-const projects = [
-  { title: "Wisker Demo Ad", image: "/assets/wisker.png", link: "/projects/wisker-demo-ad", category: "Video", isVideo: true },
-  { title: "Premium Edits", image: "/assets/arinapodcastcover.png", link: "/projects/premium-edits", category: "Video", isVideo: true },
-  { title: "Hayde Park Hotel", image: "/assets/haydeparkhotel.png", link: "/projects/hayde-park-hotel", category: "Branding", isVideo: false },
+type Project = {
+  title: string;
+  image: string;
+  link: string;
+  category: string;
+  isVideo: boolean;
+  description: string;
+};
+
+const projects: Project[] = [
+  { title: "Wisker Demo Ad", image: "/assets/wisker.png", link: "/assets/Wisker demo_ad.mp4", category: "Video", isVideo: true, description: "A creative video ad for Wisker." },
+  { title: "Premium Edits", image: "/assets/arinapodcastcover.png", link: "/assets/arina_podcast.mp4", category: "Video", isVideo: true, description: "Podcast cover and video edits for Arina." },
+  { title: "Hayde Park Hotel", image: "/assets/haydeparkhotel.png", link: "/projects/hayde-park-hotel", category: "Branding", isVideo: false, description: "Branding and design for Hayde Park Hotel." },
 ];
 
 export default function ProjectsSection() {
+  const [modalProject, setModalProject] = useState<Project | null>(null);
+
+  const openModal = (project: Project) => {
+    setModalProject(project);
+  };
+  const closeModal = () => {
+    setModalProject(null);
+  };
+
   return (
     <section id="projects" className="py-24 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}>
           Featured Work
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-10">
+        <div className="flex flex-col gap-8 mb-10 sm:grid sm:grid-cols-2 md:grid-cols-3">
           {projects.map((project) => (
-            <a
+            <button
               key={project.title}
-              href={project.link}
-              className="group block rounded-xl overflow-hidden border border-[#E5E5E5] bg-white transition-shadow hover:shadow-lg"
+              type="button"
+              onClick={() => openModal(project)}
+              className="group block rounded-xl overflow-hidden border border-[#E5E5E5] bg-white transition-shadow hover:shadow-lg focus:outline-none"
               style={{ textDecoration: 'none' }}
             >
               <div className="aspect-[4/3] w-full bg-[#F5F5F5] overflow-hidden relative flex items-center justify-center">
@@ -42,7 +61,7 @@ export default function ProjectsSection() {
                   <span className="w-full text-center py-3 text-lg font-bold text-black bg-white/80" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif' }}>{project.title}</span>
                 </div>
               </div>
-            </a>
+            </button>
           ))}
         </div>
         <div className="flex justify-center">
@@ -55,6 +74,52 @@ export default function ProjectsSection() {
           </a>
         </div>
       </div>
+
+      {/* Modal */}
+      {modalProject && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-2 sm:px-6"
+          style={{ overscrollBehavior: 'contain' }}
+          onClick={closeModal}
+        >
+          <div
+            className="bg-white rounded-xl shadow-2xl w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl p-4 sm:p-6 relative animate-fadeIn flex flex-col"
+            style={{ maxHeight: '90vh', overflowY: 'auto' }}
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              onClick={closeModal}
+              className="absolute top-3 right-3 text-gray-500 hover:text-black text-2xl font-bold focus:outline-none"
+              aria-label="Close modal"
+              style={{ zIndex: 2 }}
+            >
+              &times;
+            </button>
+            <div className="mb-4 flex flex-col items-center">
+              <div className="relative w-full mb-4 flex justify-center items-center">
+                {modalProject.isVideo ? (
+                  <video
+                    src={modalProject.link}
+                    controls
+                    className="w-full max-h-56 sm:max-h-72 object-contain rounded-lg bg-black"
+                    poster={modalProject.image}
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                ) : (
+                  <img src={modalProject.image} alt={modalProject.title} className="w-full max-h-56 sm:max-h-72 object-contain rounded-lg" />
+                )}
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold mb-2 text-center" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif' }}>{modalProject.title}</h3>
+              <p className="text-xs sm:text-sm text-gray-600 mb-2 text-center">{modalProject.category}</p>
+              <p className="mb-4 text-center" style={{ fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif' }}>{modalProject.description}</p>
+              <a href={modalProject.link} className="inline-block px-5 py-2 rounded-full font-medium border border-black bg-black text-white transition-all duration-200 hover:bg-[#1A1A1A] text-sm sm:text-base" style={{ fontFamily: 'Poppins, Helvetica Neue, Arial, sans-serif', fontWeight: 500 }}>
+                View Project
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
