@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
@@ -204,12 +205,20 @@ export default function PortfolioPage() {
             <div key={cat} className="mb-12">
               <h2 className="text-2xl font-bold mb-6 mt-2 text-left" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}>{cat}</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                {allProjects.filter((p) => p.category === cat).map((project) => (
-                  <div key={project.title}>
-                    <button
+                {allProjects.filter((p) => p.category === cat).map((project, idx) => (
+                  <motion.div
+                    key={project.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: idx * 0.08, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                  >
+                    <motion.button
                       className="group block rounded-xl overflow-hidden border border-[#E5E5E5] bg-white transition-shadow hover:shadow-lg focus:outline-none text-left"
                       style={{ textDecoration: 'none' }}
                       onClick={() => setOpenModal(project.title)}
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.98 }}
                     >
                       <div className="aspect-[4/3] w-full bg-[#F5F5F5] overflow-hidden relative flex items-center justify-center">
                         {project.isVideo ? (
@@ -241,39 +250,51 @@ export default function PortfolioPage() {
                         <div className="text-sm text-[#6b7280] mb-1">{project.category}</div>
                         <div className="text-xs text-[#444] mb-2">{project.description}</div>
                       </div>
-                    </button>
+                    </motion.button>
                     {/* Modal for this project */}
-                    {openModal === project.title && (
-                      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40" onClick={() => setOpenModal("")}>
-                        <div
-                          className="bg-white rounded-xl shadow-xl max-w-lg w-full p-6 relative flex flex-col items-center"
-                          onClick={e => e.stopPropagation()}
+                    <AnimatePresence>
+                      {openModal === project.title && (
+                        <motion.div
+                          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40"
+                          onClick={() => setOpenModal("")}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
                         >
-                          <button
-                            className="absolute top-3 right-3 text-2xl text-[#888] hover:text-black focus:outline-none"
-                            onClick={() => setOpenModal("")}
-                            aria-label="Close"
+                          <motion.div
+                            className="bg-white rounded-xl shadow-xl max-w-lg w-full p-6 relative flex flex-col items-center"
+                            onClick={e => e.stopPropagation()}
+                            initial={{ scale: 0.95, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.95, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
                           >
-                            &times;
-                          </button>
-                          {project.isVideo ? (
-                            <video controls className="w-full rounded-lg mb-4">
-                              <source src={project.video} type="video/mp4" />
-                              Your browser does not support the video tag.
-                            </video>
-                          ) : (
-                            <img
-                              src={project.image}
-                              alt={project.title}
-                              className="w-full rounded-lg mb-4"
-                            />
-                          )}
-                          <h2 className="text-xl font-bold mb-2 text-center" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}>{project.title}</h2>
-                          <div className="text-sm text-[#444] text-center mb-2">{project.description}</div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
+                            <button
+                              className="absolute top-3 right-3 text-2xl text-[#888] hover:text-black focus:outline-none"
+                              onClick={() => setOpenModal("")}
+                              aria-label="Close"
+                            >
+                              &times;
+                            </button>
+                            {project.isVideo ? (
+                              <video controls className="w-full rounded-lg mb-4">
+                                <source src={project.video} type="video/mp4" />
+                                Your browser does not support the video tag.
+                              </video>
+                            ) : (
+                              <img
+                                src={project.image}
+                                alt={project.title}
+                                className="w-full rounded-lg mb-4"
+                              />
+                            )}
+                            <h2 className="text-xl font-bold mb-2 text-center" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}>{project.title}</h2>
+                            <div className="text-sm text-[#444] text-center mb-2">{project.description}</div>
+                          </motion.div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </motion.div>
                 ))}
               </div>
             </div>
