@@ -69,6 +69,37 @@ export default function HeroSection() {
               Contact Me
             </motion.a>
           </div>
+          {/* Social Icons below buttons */}
+          <div className="flex flex-row gap-5 justify-center md:justify-start items-center mt-5">
+            <a
+              href="https://www.linkedin.com/in/ron-paragoso-a96b1724b/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="hover:opacity-80 transition-opacity"
+              style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+            >
+              {/* LinkedIn SVG: full circle */}
+              <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="19" cy="19" r="19" fill="#0077B5"/>
+                <path d="M26.5 26.5h-4.1v-6.7c0-1.6-.03-3.7-2.25-3.7-2.25 0-2.6 1.76-2.6 3.58v6.82H13.5V15.5h3.93v1.5h.06c.55-.93 1.8-1.9 3.7-1.9 3.96 0 4.7 2.6 4.7 5.98V26.5zM11.5 13.5a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM13.5 26.5h-4V15.5h4v11z" fill="white"/>
+              </svg>
+            </a>
+            <a
+              href="https://github.com/rdeniele"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              className="hover:opacity-80 transition-opacity"
+              style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+            >
+              {/* GitHub SVG: full circle */}
+              <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="19" cy="19" r="19" fill="#222"/>
+                <path d="M19 10c-5.1 0-9.2 4.1-9.2 9.2 0 4.1 2.7 7.6 6.5 8.7.5.1.7-.2.7-.5v-1.8c-2.6.6-3.1-1.1-3.1-1.1-.4-1-1-1.4-1-1.4-.8-.7.1-.7.1-.7 1 .1 1.4 1 1.4 1 .9 1.4 2.2 1 2.7.8.1-.7.3-1 .5-1.2-2.1-.2-4.3-1.1-4.3-4.5 0-1 .3-1.7.8-2.3-.1-.2-.4-1.1.1-2.2 0 0 .8-.2 2.3.8.7-.2 1.6-.3 2.3-.3.7 0 1.6.1 2.3.3 1.5-1 2.3-.8 2.3-.8.5 1.1.2 2 .1 2.2.5.6.8 1.3.8 2.3 0 3.4-2.2 4.3-4.3 4.5.3.3.5.7.5 1.5v2c0 .3.2.6.7.5 3.8-1.1 6.5-4.6 6.5-8.7C28.2 14.1 24.1 10 19 10z" fill="white"/>
+              </svg>
+            </a>
+          </div>
         </motion.div>
       </div>
       {/* Scroll Down Mouse Icon: Desktop (absolute at bottom) */}

@@ -37,7 +37,7 @@ export default function Footer() {
             Email
           </motion.a>
           <motion.a
-            href="https://linkedin.com/in/ron-paragoso"
+            href="https://www.linkedin.com/in/ron-paragoso-a96b1724b/"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-colors hover:text-black text-[#A3A3A3]"
@@ -46,6 +46,17 @@ export default function Footer() {
             whileTap={{ scale: 0.97 }}
           >
             LinkedIn
+          </motion.a>
+          <motion.a
+            href="https://github.com/rdeniele"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-black text-[#A3A3A3]"
+            aria-label="GitHub"
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            GitHub
           </motion.a>
           <motion.a
             href="https://ronparagoso.vercel.app"

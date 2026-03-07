@@ -73,8 +73,12 @@ export default function ContactSection() {
               work.rparagoso@gmail.com
             </a>
             <span className="hidden md:inline-block text-[#E5E5E5]">|</span>
-            <a href="https://linkedin.com/in/ron-paragoso" target="_blank" rel="noopener noreferrer" className="underline text-black text-base hover:text-[#1A1A1A] transition" style={{ fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif' }}>
+            <a href="https://www.linkedin.com/in/ron-paragoso-a96b1724b/" target="_blank" rel="noopener noreferrer" className="underline text-black text-base hover:text-[#1A1A1A] transition" style={{ fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif' }}>
               LinkedIn
+            </a>
+            <span className="hidden md:inline-block text-[#E5E5E5]">|</span>
+            <a href="https://github.com/rdeniele" target="_blank" rel="noopener noreferrer" className="underline text-black text-base hover:text-[#1A1A1A] transition" style={{ fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif' }}>
+              GitHub
             </a>
           </div>
         </motion.div>
