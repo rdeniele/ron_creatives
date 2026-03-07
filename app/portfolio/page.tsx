@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Parallax } from "react-scroll-parallax";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
@@ -192,9 +193,11 @@ export default function PortfolioPage() {
       <Navbar />
       <section className="py-24 bg-white min-h-screen">
         <div className="max-w-6xl mx-auto px-6">
-          <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}>
-            All Projects
-          </h1>
+          <Parallax speed={-10}>
+            <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}>
+              All Projects
+            </h1>
+          </Parallax>
           {/* Category sections */}
           {[
             "Short-form works",
@@ -203,7 +206,9 @@ export default function PortfolioPage() {
             "Web design and development",
           ].map((cat) => (
             <div key={cat} className="mb-12">
-              <h2 className="text-2xl font-bold mb-6 mt-2 text-left" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}>{cat}</h2>
+              <Parallax speed={-5}>
+                <h2 className="text-2xl font-bold mb-6 mt-2 text-left" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}>{cat}</h2>
+              </Parallax>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                 {allProjects.filter((p) => p.category === cat).map((project, idx) => (
                   <motion.div
@@ -213,44 +218,46 @@ export default function PortfolioPage() {
                     transition={{ duration: 0.6, delay: idx * 0.08, ease: "easeOut" }}
                     viewport={{ once: true }}
                   >
-                    <motion.button
-                      className="group block rounded-xl overflow-hidden border border-[#E5E5E5] bg-white transition-shadow hover:shadow-lg focus:outline-none text-left"
-                      style={{ textDecoration: 'none' }}
-                      onClick={() => setOpenModal(project.title)}
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <div className="aspect-[4/3] w-full bg-[#F5F5F5] overflow-hidden relative flex items-center justify-center">
-                        {project.isVideo ? (
-                          <video controls className="w-full h-full object-cover">
-                            <source src={project.video} type="video/mp4" />
-                            Your browser does not support the video tag.
-                          </video>
-                        ) : (
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                            style={{ display: 'block' }}
-                          />
-                        )}
-                        {project.isVideo && (
-                          <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" className="drop-shadow-md">
-                              <circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.45)" />
-                              <polygon points="23,18 40,28 23,38" fill="#fff" />
-                            </svg>
-                          </span>
-                        )}
-                        <div className="absolute inset-0 bg-[#E5E5E5]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center">
-                          <span className="w-full text-center py-3 text-lg font-bold text-black bg-white/80" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif' }}>{project.title}</span>
+                    <Parallax speed={3 + (idx % 2 === 0 ? 2 : -2)}>
+                      <motion.button
+                        className="group block rounded-xl overflow-hidden border border-[#E5E5E5] bg-white transition-shadow hover:shadow-lg focus:outline-none text-left"
+                        style={{ textDecoration: 'none' }}
+                        onClick={() => setOpenModal(project.title)}
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        <div className="aspect-[4/3] w-full bg-[#F5F5F5] overflow-hidden relative flex items-center justify-center">
+                          {project.isVideo ? (
+                            <video controls className="w-full h-full object-cover">
+                              <source src={project.video} type="video/mp4" />
+                              Your browser does not support the video tag.
+                            </video>
+                          ) : (
+                            <img
+                              src={project.image}
+                              alt={project.title}
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                              style={{ display: 'block' }}
+                            />
+                          )}
+                          {project.isVideo && (
+                            <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                              <svg width="56" height="56" viewBox="0 0 56 56" fill="none" className="drop-shadow-md">
+                                <circle cx="28" cy="28" r="28" fill="rgba(0,0,0,0.45)" />
+                                <polygon points="23,18 40,28 23,38" fill="#fff" />
+                              </svg>
+                            </span>
+                          )}
+                          <div className="absolute inset-0 bg-[#E5E5E5]/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center">
+                            <span className="w-full text-center py-3 text-lg font-bold text-black bg-white/80" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif' }}>{project.title}</span>
+                          </div>
                         </div>
-                      </div>
-                      <div className="p-4">
-                        <div className="text-sm text-[#6b7280] mb-1">{project.category}</div>
-                        <div className="text-xs text-[#444] mb-2">{project.description}</div>
-                      </div>
-                    </motion.button>
+                        <div className="p-4">
+                          <div className="text-sm text-[#6b7280] mb-1">{project.category}</div>
+                          <div className="text-xs text-[#444] mb-2">{project.description}</div>
+                        </div>
+                      </motion.button>
+                    </Parallax>
                     {/* Modal for this project */}
                     <AnimatePresence>
                       {openModal === project.title && (

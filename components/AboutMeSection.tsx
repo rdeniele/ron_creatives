@@ -113,7 +113,7 @@ export default function AboutMeSection() {
                 >
                   &#8592;
                 </motion.button>
-                <div className="flex flex-row gap-6 md:gap-8 items-center">
+                <div className="flex flex-col lg:flex-row gap-6 md:gap-8 items-center">
                   {experiences.slice(slide * perSlide, slide * perSlide + perSlide).map((exp, idx) => (
                     <motion.div
                       key={exp.title + exp.date}

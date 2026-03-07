@@ -50,7 +50,7 @@ export default function ProjectsSection() {
           >
             Featured Work
           </motion.h2>
-          <div className="flex flex-col gap-8 mb-10 sm:grid sm:grid-cols-2 md:grid-cols-3">
+          <div className="flex flex-col gap-8 mb-10 lg:grid lg:grid-cols-3">
             {projects.map((project, idx) => (
               <motion.button
                 key={project.title}
