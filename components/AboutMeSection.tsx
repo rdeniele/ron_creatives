@@ -41,120 +41,70 @@ const experiences = [
 
 import { motion } from "framer-motion";
 import { Parallax } from "react-scroll-parallax";
-import React, { useState } from "react";
+import React from "react";
+import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa6";
 
 
 export default function AboutMeSection() {
-  const [slide, setSlide] = useState(0);
-  const perSlide = 3;
-  const totalSlides = Math.ceil(experiences.length / perSlide);
-
-  const goPrev = () => setSlide((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
-  const goNext = () => setSlide((prev) => (prev === totalSlides - 1 ? 0 : prev + 1));
-
   return (
     <section id="about" className="py-20 bg-white">
       <Parallax speed={-3}>
         <motion.div
-          className="max-w-2xl mx-auto px-6 flex flex-col items-center gap-8"
+          className="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center gap-10 md:gap-16 bg-white/90 rounded-2xl shadow-lg p-8 md:p-12 border border-gray-100"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
           viewport={{ once: true }}
         >
-          <motion.img
-            src="/assets/ronpic4.png"
-            alt="Ron Deniele Paragoso"
-            className="w-28 h-28 rounded-full object-cover border border-black bg-white mb-2"
-            style={{ boxShadow: '0 2px 8px 0 rgba(0,0,0,0.03)' }}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            viewport={{ once: true }}
-          />
-          <motion.h2
-            className="text-xl md:text-2xl font-bold mb-2 text-center"
-            style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+          <motion.div
+            className="flex-shrink-0 flex justify-center items-center w-full md:w-auto"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            About Me
-          </motion.h2>
-          <motion.p
-            className="text-base max-w-lg mb-4 text-center"
-            style={{ color: '#222', fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif', fontWeight: 400 }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
+            <img
+              src="/assets/ronpic4.png"
+              alt="Ron Deniele Paragoso"
+              className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-black bg-white shadow-md"
+              style={{ boxShadow: '0 4px 16px 0 rgba(0,0,0,0.06)' }}
+            />
+          </motion.div>
+          <motion.div
+            className="flex-1 flex flex-col justify-center items-center md:items-start text-center md:text-left gap-4"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
             viewport={{ once: true }}
           >
-            Hi, I’m Ron Deniele Paragoso — a creative technologist passionate about blending design, technology, and AI to help brands stand out. I specialize in digital content, branding, and web experiences that are clean, modern, and impactful.
-          </motion.p>
-          <div className="w-full mt-2">
-            <motion.h3
-              className="text-lg font-semibold mb-5 text-center"
+            <h2
+              className="text-xl md:text-2xl font-bold mb-2"
               style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >Experience</motion.h3>
-            <div className="flex flex-col items-center">
-              <div className="flex flex-row items-center gap-4">
-                <motion.button
-                  aria-label="Previous Experience"
-                  onClick={goPrev}
-                  className="rounded-full border border-[#E5E5E5] w-8 h-8 flex items-center justify-center bg-white hover:bg-[#F5F5F5] transition"
-                  style={{ fontSize: 20, color: '#888' }}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  &#8592;
-                </motion.button>
-                <div className="flex flex-col lg:flex-row gap-6 md:gap-8 items-center">
-                  {experiences.slice(slide * perSlide, slide * perSlide + perSlide).map((exp, idx) => (
-                    <motion.div
-                      key={exp.title + exp.date}
-                      className="flex flex-col items-center min-w-[180px] max-w-[240px]"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.1 + idx * 0.1, ease: "easeOut" }}
-                      viewport={{ once: true }}
-                    >
-                      <span className={`w-3 h-3 rounded-full border-2 mb-2 ${exp.current ? 'bg-black border-black' : 'bg-[#E5E5E5] border-[#E5E5E5]'}`}></span>
-                      <div className="bg-white border border-[#E5E5E5] rounded-lg p-3 text-center min-w-[180px] max-w-[220px]">
-                        <div className="text-sm font-bold mb-1" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}>{exp.title}</div>
-                        <div className="text-xs mb-0.5" style={{ color: '#6b7280', fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif' }}>{exp.company}</div>
-                        <div className="text-xs mb-1" style={{ color: '#A3A3A3', fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif' }}>{exp.date}</div>
-                        <div className="text-xs mt-1" style={{ color: '#444', fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif', fontSize: '13px' }}>{exp.summary}</div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-                <motion.button
-                  aria-label="Next Experience"
-                  onClick={goNext}
-                  className="rounded-full border border-[#E5E5E5] w-8 h-8 flex items-center justify-center bg-white hover:bg-[#F5F5F5] transition"
-                  style={{ fontSize: 20, color: '#888' }}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  &#8594;
-                </motion.button>
-              </div>
-              <div className="flex flex-row gap-1 mt-3">
-                {Array.from({ length: totalSlides }).map((_, i) => (
-                  <span
-                    key={i}
-                    className={`w-2 h-2 rounded-full ${i === slide ? 'bg-black' : 'bg-[#E5E5E5]'}`}
-                    style={{ display: 'inline-block' }}
-                  ></span>
-                ))}
-              </div>
-            </div>
-          </div>
+            >
+              About Me
+            </h2>
+            <p
+              className="text-base max-w-xl mb-2"
+              style={{ color: '#222', fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif', fontWeight: 400 }}
+            >
+              Hi, I’m Ron Deniele Paragoso — a creative technologist fusing design, code, and AI to craft standout digital experiences. I help brands grow with modern web solutions, compelling content, and a passion for innovation.
+            </p>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 px-8 py-3 mt-3 rounded-full font-medium border border-black bg-white text-black transition-all duration-200 hover:bg-[#E5E5E5] group"
+                style={{ fontFamily: 'Poppins, Helvetica Neue, Arial, sans-serif', fontWeight: 500 }}
+                aria-label="Discover My Story"
+              >
+                Discover My Story
+                <FaArrowRight className="text-black text-sm group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
+          </motion.div>
         </motion.div>
       </Parallax>
     </section>

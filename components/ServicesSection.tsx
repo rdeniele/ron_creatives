@@ -1,5 +1,7 @@
 "use client";
 
+import { FaArrowRight } from "react-icons/fa6";
+
 const SERVICES = [
   {
     title: "AI Visual Design",
@@ -43,7 +45,7 @@ export default function ServicesSection() {
           >
             What I Do
           </motion.h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
             {SERVICES.map((service, idx) => (
               <motion.div
                 key={service.title}
@@ -64,6 +66,18 @@ export default function ServicesSection() {
                 </p>
               </motion.div>
             ))}
+          </div>
+          <div className="flex justify-center">
+            <motion.a
+              href="/services"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full font-medium border border-black bg-white text-black transition-all duration-200 hover:bg-[#E5E5E5] group"
+              style={{ fontFamily: 'Poppins, Helvetica Neue, Arial, sans-serif', fontWeight: 500 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              See All Services
+              <FaArrowRight className="text-black text-sm group-hover:translate-x-1 transition-transform" />
+            </motion.a>
           </div>
         </motion.div>
       </Parallax>

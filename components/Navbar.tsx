@@ -2,13 +2,12 @@
 
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-
 const navLinks = [
-  { href: "#home", label: "Home" },
-  { href: "#services", label: "Services" },
-  { href: "#projects", label: "Portfolio" },
-  { href: "#about", label: "About" },
-  { href: "#contact", label: "Contact" },
+  { href: "/", label: "Home" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
 ];
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -36,7 +35,7 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <motion.a
-                  key={link.href}
+                  key={link.href + link.label}
                   href={link.href}
                   className="nav-link text-black hover:underline transition-colors text-sm tracking-wide font-medium"
                   style={{ fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif' }}
@@ -61,7 +60,7 @@ export default function Navbar() {
               </svg>
             </button>
             <motion.a
-              href="#contact"
+              href="/contact"
               className="hidden md:inline-block px-6 py-2 rounded-full text-sm font-medium border border-black bg-black text-white transition-all duration-200 hover:bg-[#1A1A1A]"
               style={{ fontFamily: 'Poppins, Helvetica Neue, Arial, sans-serif', fontWeight: 500 }}
               whileHover={{ scale: 1.05 }}
@@ -83,7 +82,7 @@ export default function Navbar() {
                 </button>
                 {navLinks.map((link) => (
                   <motion.a
-                    key={link.href}
+                    key={link.href + link.label}
                     href={link.href}
                     className="block text-black text-lg font-medium py-2 px-2 rounded hover:bg-[#F5F5F5] transition-colors"
                     style={{ fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif' }}
