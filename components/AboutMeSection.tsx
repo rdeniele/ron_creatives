@@ -51,7 +51,7 @@ export default function AboutMeSection() {
     <section id="about" className="py-20 bg-white">
       <Parallax speed={-3}>
         <motion.div
-          className="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center gap-10 md:gap-16 bg-white/90 rounded-2xl shadow-lg p-8 md:p-12 border border-gray-100"
+          className="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center gap-10 md:gap-16 bg-white/90 rounded-2xl p-8 md:p-12 border border-[#E5E5E5] shadow-none hover:shadow-md transition-shadow"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
@@ -67,8 +67,7 @@ export default function AboutMeSection() {
             <img
               src="/assets/ronpic4.png"
               alt="Ron Deniele Paragoso"
-              className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-black bg-white shadow-md"
-              style={{ boxShadow: '0 4px 16px 0 rgba(0,0,0,0.06)' }}
+              className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-black bg-white"
             />
           </motion.div>
           <motion.div
