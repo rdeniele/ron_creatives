@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Parallax } from "react-scroll-parallax";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { link } from "fs";
 
 
 // Manually define each project for easy editing
@@ -61,7 +62,7 @@ const allProjects = [
     description: "Thoughts campaign visual.",
   },
   {
-    title: "Hayde Park Hotel Website",
+    title: "Hayde Park Hotel Branding",
     image: "/assets/haydeparkhotel.png",
     video: undefined,
     category: "Logo works",
@@ -104,6 +105,33 @@ const allProjects = [
     category: "Web design and development",
     isVideo: false,
     description: "HTC web design.",
+  },
+  {
+    title: "ArtBliss (About Page)",
+    image: "/assets/web/design/artbliss_about_page.png",
+    video: undefined,
+    category: "Web design and development",
+    isVideo: false,
+    description: "ArtBliss About Page web design.",
+    link: "https://www.artblisshotel.com/about",
+  },
+  {
+    title: "Coastal Haven Design + Build",
+    image: "/assets/web/design/coastalhavendesign_plus_build.png",
+    video: undefined,
+    category: "Web design and development",
+    isVideo: false,
+    description: "Coastal Haven Design + Build web design.",
+    link: "https://www.coastalhaven-design-build.com",
+  },
+  {
+    title: "Hayde Park Hotel Website",
+    image: "/assets/web/design/haydeparkholtel.png",
+    video: undefined,
+    category: "Web design and development",
+    isVideo: false,
+    description: "Hayde Park Hotel Website web design.",
+    link: "https://hydeparkhotel.guestywebsites.com",
   },
   {
     title: "ritwal",
@@ -169,6 +197,7 @@ const allProjects = [
     category: "Web design and development",
     isVideo: false,
     description: "Wisker - AI Study Companion web UI.",
+    link:"https://www.wisker.app"
   },
   {
     title: "Simplabots",
@@ -177,6 +206,7 @@ const allProjects = [
     category: "Web design and development",
     isVideo: false,
     description: "Simplabots blurred UI concept.",
+    link:"https://simplabots.com"
   },
   
   {
@@ -305,6 +335,16 @@ export default function PortfolioPage() {
                             )}
                             <h2 className="text-xl font-bold mb-2 text-center" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}>{project.title}</h2>
                             <div className="text-sm text-[#444] text-center mb-2">{project.description}</div>
+                            {project.link && (
+                              <a
+                                href={project.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block px-6 py-2 mt-3 rounded-full bg-black text-white font-semibold text-sm hover:bg-[#1A1A1A] transition-all duration-200"
+                              >
+                                Visit Site
+                              </a>
+                            )}
                           </motion.div>
                         </motion.div>
                       )}
