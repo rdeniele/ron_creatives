@@ -40,16 +40,16 @@ export default function ServicesPage() {
             </li>
           </ul>
         </div>
-        {/* Marketing/CTA Section */}
-        <section className="w-full max-w-3xl mx-auto mt-12 px-4 py-10 bg-[#f9fafb] rounded-xl border border-[#E5E5E5] flex flex-col items-center text-center shadow-sm">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}>
-            Ready to Elevate Your Brand?
+        {/* Portfolio Link Section */}
+        <section className="w-full max-w-3xl mx-auto mt-12 px-4 py-8 bg-white rounded-xl border border-black flex flex-col items-center text-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-3" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}>
+            See My Work in Action
           </h2>
-          <p className="text-lg text-gray-700 mb-6 max-w-xl" style={{ fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif' }}>
-            I combine creativity, technology, and a passion for results to help businesses and creators stand out online. Whether you need a stunning website, a unique brand identity, or eye-catching visuals, I’m here to bring your vision to life. Let’s collaborate and make something amazing together!
+          <p className="text-base text-gray-700 mb-6 max-w-xl" style={{ fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif' }}>
+            Explore my portfolio to see real projects, creative solutions, and the results I've delivered for clients and collaborators.
           </p>
-          <a href="#contact" className="inline-block px-8 py-3 rounded-full bg-black text-white font-semibold text-lg shadow hover:bg-[#1A1A1A] transition-all duration-200">
-            Let's Work Together
+          <a href="/portfolio" className="inline-block px-8 py-3 rounded-full bg-black text-white font-semibold text-base shadow hover:bg-[#1A1A1A] transition-all duration-200">
+            View Portfolio
           </a>
         </section>
       </main>

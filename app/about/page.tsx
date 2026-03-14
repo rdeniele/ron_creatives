@@ -59,24 +59,25 @@ export default function AboutPage() {
         <section id="about" className="py-20 bg-white w-full">
           <Parallax speed={-3}>
             <motion.div
-              className="max-w-2xl mx-auto px-6 flex flex-col items-center gap-8"
+              className="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
               <motion.img
-                src="/assets/ronpic4.png"
+                src="/assets/rongradpic2.png"
                 alt="Ron Deniele Paragoso"
-                className="w-28 h-28 rounded-full object-cover border border-black bg-white mb-2"
-                style={{ boxShadow: '0 2px 8px 0 rgba(0,0,0,0.03)' }}
+                className="w-full lg:w-1/2 max-w-md lg:max-w-none h-auto object-cover rounded-lg border border-black bg-white"
+                style={{ boxShadow: '0 4px 16px 0 rgba(0,0,0,0.08)' }}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
                 viewport={{ once: true }}
               />
-              <motion.h2
-                className="text-2xl md:text-3xl font-bold mb-2 text-center"
+              <div className="flex flex-col lg:w-1/2">
+                <motion.h2
+                  className="text-2xl md:text-3xl font-bold mb-4 text-left"
                 style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -85,8 +86,8 @@ export default function AboutPage() {
               >
                 About Me
               </motion.h2>
-              <motion.p
-                className="text-base max-w-lg mb-4 text-center"
+                <motion.p
+                  className="text-base mb-4 text-left leading-relaxed"
                 style={{ color: '#222', fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif', fontWeight: 400 }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -97,7 +98,8 @@ export default function AboutPage() {
                 Over the years, I’ve blended my love for art and code into a career helping brands and businesses stand out in the digital age. Whether I’m building a sleek landing page, crafting a brand identity, or generating AI-powered visuals, I approach every project with curiosity and a drive to make something meaningful.<br /><br />
                 My work is about more than pixels and code — it’s about telling stories, solving problems, and creating experiences that connect with people. I believe that great design is invisible, but its impact is unforgettable.<br /><br />
                 When I’m not working, you’ll find me exploring new creative tools, collaborating with teams around the globe, or simply enjoying a good cup of coffee while brainstorming my next big idea.
-              </motion.p>
+                </motion.p>
+              </div>
             </motion.div>
           </Parallax>
         </section>

@@ -65,7 +65,7 @@ export default function AboutMeSection() {
             viewport={{ once: true }}
           >
             <img
-              src="/assets/ronpic4.png"
+              src="/assets/rongradpic2.png"
               alt="Ron Deniele Paragoso"
               className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-black bg-white"
             />
