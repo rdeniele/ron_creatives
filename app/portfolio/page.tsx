@@ -163,6 +163,14 @@ const allProjects = [
     description: "noteJewel AI web UI.",
   },
   {
+    title: "Wisker - AI Study Companion",
+    image: "/assets/web/design/wisker_landing.png",
+    video: undefined,
+    category: "Web design and development",
+    isVideo: false,
+    description: "Wisker - AI Study Companion web UI.",
+  },
+  {
     title: "Simplabots",
     image: "/assets/web/design/simplabots_AI.png",
     video: undefined,
