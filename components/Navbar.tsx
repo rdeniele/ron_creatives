@@ -19,19 +19,8 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <div className="flex items-center justify-between">
-            <a href="/" className="flex items-center gap-2 text-2xl font-bold" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000', letterSpacing: '-0.02em' }}>
-              {/* Cat icon from Phosphor Icons (MIT License) */}
-              <svg width="32" height="32" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-black">
-                <path d="M128 32c-16 0-32 8-44.8 22.4C70.4 66.4 64 80 64 96c0 32 32 64 64 64s64-32 64-64c0-16-6.4-29.6-19.2-41.6C160 40 144 32 128 32zm0 112c-26.4 0-48-21.6-48-48 0-10.4 4-20 11.2-28.8C99.2 59.2 113.6 52 128 52s28.8 7.2 36.8 15.2C200 76 204 85.6 204 96c0 26.4-21.6 48-48 48z" fill="#222"/>
-                <ellipse cx="104" cy="112" rx="8" ry="12" fill="#fff"/>
-                <ellipse cx="152" cy="112" rx="8" ry="12" fill="#fff"/>
-                <ellipse cx="104" cy="112" rx="4" ry="6" fill="#222"/>
-                <ellipse cx="152" cy="112" rx="4" ry="6" fill="#222"/>
-                <path d="M120 136c2.4 2.4 6.4 4 8 4s5.6-1.6 8-4" stroke="#222" strokeWidth="4" strokeLinecap="round"/>
-              </svg>
-            </a>
-            {/* Desktop nav */}
+          <div className="relative flex items-center justify-between">
+            {/* Left: Desktop nav links */}
             <div className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <motion.a
@@ -46,28 +35,45 @@ export default function Navbar() {
                 </motion.a>
               ))}
             </div>
-            {/* Burger menu button for mobile */}
-            <button
-              className="md:hidden flex items-center justify-center w-10 h-10 rounded focus:outline-none"
-              aria-label="Open menu"
-              onClick={() => setMenuOpen((v) => !v)}
-            >
-              <span className="sr-only">Open menu</span>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="18" x2="21" y2="18" />
+
+            {/* Center: Icon */}
+            <a href="/" className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-2 text-2xl font-bold" style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000', letterSpacing: '-0.02em' }}>
+              {/* Cat icon from Phosphor Icons (MIT License) */}
+              <svg width="32" height="32" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-black">
+                <path d="M128 32c-16 0-32 8-44.8 22.4C70.4 66.4 64 80 64 96c0 32 32 64 64 64s64-32 64-64c0-16-6.4-29.6-19.2-41.6C160 40 144 32 128 32zm0 112c-26.4 0-48-21.6-48-48 0-10.4 4-20 11.2-28.8C99.2 59.2 113.6 52 128 52s28.8 7.2 36.8 15.2C200 76 204 85.6 204 96c0 26.4-21.6 48-48 48z" fill="#222"/>
+                <ellipse cx="104" cy="112" rx="8" ry="12" fill="#fff"/>
+                <ellipse cx="152" cy="112" rx="8" ry="12" fill="#fff"/>
+                <ellipse cx="104" cy="112" rx="4" ry="6" fill="#222"/>
+                <ellipse cx="152" cy="112" rx="4" ry="6" fill="#222"/>
+                <path d="M120 136c2.4 2.4 6.4 4 8 4s5.6-1.6 8-4" stroke="#222" strokeWidth="4" strokeLinecap="round"/>
               </svg>
-            </button>
-            <motion.a
-              href="/contact"
-              className="hidden md:inline-block px-6 py-2 rounded-full text-sm font-medium border border-black bg-black text-white transition-all duration-200 hover:bg-[#1A1A1A]"
-              style={{ fontFamily: 'Poppins, Helvetica Neue, Arial, sans-serif', fontWeight: 500 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              Let's Talk
-            </motion.a>
+            </a>
+
+            {/* Right: Mobile burger + CTA */}
+            <div className="flex items-center gap-4">
+              {/* Burger menu button for mobile */}
+              <button
+                className="md:hidden flex items-center justify-center w-10 h-10 rounded focus:outline-none"
+                aria-label="Open menu"
+                onClick={() => setMenuOpen((v) => !v)}
+              >
+                <span className="sr-only">Open menu</span>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#222" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </svg>
+              </button>
+              <motion.a
+                href="/contact"
+                className="hidden md:inline-block px-6 py-2 rounded-full text-sm font-medium border border-black bg-black text-white transition-all duration-200 hover:bg-[#1A1A1A]"
+                style={{ fontFamily: 'Poppins, Helvetica Neue, Arial, sans-serif', fontWeight: 500 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                Let's Talk
+              </motion.a>
+            </div>
           </div>
           {/* Mobile menu overlay */}
           {menuOpen && (
