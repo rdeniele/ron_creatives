@@ -59,43 +59,43 @@ export default function AboutPage() {
         <section id="about" className="py-20 bg-white w-full">
           <Parallax speed={-3}>
             <motion.div
-              className="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12"
+              className="max-w-6xl mx-auto px-6 flex flex-col items-center"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
-              <motion.img
-                src="/assets/rongradpic2.png"
-                alt="Ron Deniele Paragoso"
-                className="w-full lg:w-1/2 max-w-md lg:max-w-none h-auto object-cover rounded-lg border border-black bg-white"
-                style={{ boxShadow: '0 4px 16px 0 rgba(0,0,0,0.08)' }}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
-                viewport={{ once: true }}
-              />
-              <div className="flex flex-col lg:w-1/2">
-                <motion.h2
-                  className="text-2xl md:text-3xl font-bold mb-4 text-left"
+              <motion.h2
+                className="text-2xl md:text-3xl font-bold mb-8 text-center"
                 style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
+                transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
                 viewport={{ once: true }}
               >
                 About Me
               </motion.h2>
-                <motion.p
-                  className="text-base mb-4 text-left leading-relaxed"
-                style={{ color: '#222', fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif', fontWeight: 400 }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.4, ease: 'easeOut' }}
+              <div className="flex flex-col lg:flex-row items-center gap-12 w-full">
+                <motion.img
+                src="/assets/rongradpic2.png"
+                alt="Ron Deniele Paragoso"
+                className="w-full lg:w-1/3 max-w-md lg:max-w-none h-auto object-cover rounded-lg border border-black bg-white"
+                style={{ boxShadow: '0 4px 16px 0 rgba(0,0,0,0.08)' }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
                 viewport={{ once: true }}
-              >
-                Hi, I’m Ron Deniele Paragoso — a creative technologist and storyteller at heart. My journey began with a fascination for how design and technology can shape the way we experience the world. From a young age, I was the kid who took apart gadgets just to see how they worked, and who spent hours sketching logos and layouts in the margins of my notebooks.<br /><br />
-                Over the years, I’ve blended my love for art and code into a career helping brands and businesses stand out in the digital age. Whether I’m building a sleek landing page, crafting a brand identity, or generating AI-powered visuals, I approach every project with curiosity and a drive to make something meaningful.<br /><br />
+              />
+                <motion.p
+                  className="text-base text-left leading-relaxed lg:w-2/3"
+                  style={{ color: '#222', fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif', fontWeight: 400 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7, delay: 0.4, ease: 'easeOut' }}
+                  viewport={{ once: true }}
+                >
+                Hi, I'm Ron Deniele Paragoso — a creative technologist and storyteller at heart. I started as a kid who loved digital and traditional art, spending hours sketching and painting, while also breaking apart my gadgets just to rebuild them again. This unique blend of creativity and technology became the foundation of who I am today.<br /><br />
+                Over the years, I've merged these passions into a career helping brands and businesses stand out in the digital age. Whether I'm building a sleek landing page, crafting a brand identity, or generating AI-powered visuals, I approach every project with the same curiosity and drive that sparked my journey as a kid.<br /><br />
                 My work is about more than pixels and code — it’s about telling stories, solving problems, and creating experiences that connect with people. I believe that great design is invisible, but its impact is unforgettable.<br /><br />
                 When I’m not working, you’ll find me exploring new creative tools, collaborating with teams around the globe, or simply enjoying a good cup of coffee while brainstorming my next big idea.
                 </motion.p>
@@ -173,6 +173,51 @@ export default function AboutPage() {
                   ))}
                 </div>
               </div>
+            </motion.div>
+          </Parallax>
+        </section>
+        <section id="dev-work" className="py-16 w-full bg-white">
+          <Parallax speed={-2}>
+            <motion.div
+              className="max-w-4xl mx-auto px-6 flex flex-col items-center gap-8"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
+              viewport={{ once: true }}
+            >
+              <motion.h3
+                className="text-lg font-semibold mb-4 text-center"
+                style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif', color: '#000' }}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+                viewport={{ once: true }}
+              >Development Work</motion.h3>
+              <motion.p
+                className="text-base text-center max-w-2xl leading-relaxed"
+                style={{ color: '#444', fontFamily: 'Inter, Helvetica Neue, Arial, sans-serif' }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3, ease: 'easeOut' }}
+                viewport={{ once: true }}
+              >
+                Beyond design, I specialize in full-stack web development, creating responsive, performant applications using modern technologies like React, Next.js, TypeScript, and Node.js. I build everything from sleek landing pages to complex web applications, always focusing on clean code, optimal user experience, and scalable architecture.
+              </motion.p>
+              <motion.a
+                href="https://ronparagoso.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-3 bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 text-white rounded-lg font-semibold hover:from-purple-700 hover:via-pink-600 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl"
+                style={{ fontFamily: 'Montserrat, Helvetica Neue, Arial, sans-serif' }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.4, ease: 'easeOut' }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                View My Development Portfolio →
+              </motion.a>
             </motion.div>
           </Parallax>
         </section>
